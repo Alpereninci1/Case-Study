@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +19,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('providers',[\App\Http\Controllers\ProviderController::class,'getProviders']);
+
+
+Route::get('tasks',[\App\Http\Controllers\ProviderController::class,'getTasks']);
+
+Route::get('make-plan',[\App\Http\Controllers\DeveloperController::class,'makePlan']);
+
+Route::get('schedules',[\App\Http\Controllers\DeveloperController::class,'schedule']);
+
