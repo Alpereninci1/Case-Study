@@ -25,3 +25,5 @@ Route::get('tasks-share',function (){
     return view('task', ['tasks' => $tasks]);
 });
 
+Route::get('make-plan',[\App\Http\Controllers\PlanController::class,'makePlan']);
+
