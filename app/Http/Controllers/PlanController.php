@@ -19,8 +19,8 @@ class PlanController extends Controller
                 'DEV5' => ['time' => 1, 'difficulty' => 5]
             ];
 
-            $speeds = [];
-            $tasks = Task::all();
+            $speeds = []; // the power of developers
+            $tasks = Task::all(); // our tasks
             $totalTaskSize= 0;
             $weeklyWorkingHours = 45;
 
@@ -31,12 +31,14 @@ class PlanController extends Controller
                 $speeds[$developer] = $speed;
             }
 
+            // count total task size
             foreach($tasks as $task){
                 $totalTaskSize += $task['duration'] * $task['difficulty'];
             }
 
-            $minimumWeeks = ceil($totalTaskSize / $weeklyWorkingHours);
+            $minimumWeeks = ceil($totalTaskSize / $weeklyWorkingHours); // calculate the min number of weeks developer has to work
 
+            // plans according to the working speed of the developers
             $developerPlans = [];
             foreach($speeds as $developer => $speed){
                 $developerPlan = [
@@ -59,8 +61,6 @@ class PlanController extends Controller
 
         });
 
-
     }
-
 
 }
