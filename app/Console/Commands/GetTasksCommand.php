@@ -2,13 +2,9 @@
 
 namespace App\Console\Commands;
 
-use App\Http\Resources\TaskResource;
-use App\Models\Developer;
 use App\Models\Task;
 use App\Traits\WithErrorHandling;
-use GuzzleHttp\Client;
 use Illuminate\Console\Command;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
 
 

@@ -22,8 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('tasks',[\App\Http\Controllers\ProviderController::class,'getTasks']);
-
-Route::get('make-plan',[\App\Http\Controllers\DeveloperController::class,'makePlan']);
-
-Route::get('schedules',[\App\Http\Controllers\DeveloperController::class,'schedule']);
+Route::get('make-plan',[\App\Http\Controllers\PlanController::class,'makePlan']);
 
