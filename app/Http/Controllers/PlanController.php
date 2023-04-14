@@ -47,7 +47,7 @@ class PlanController extends Controller
                 foreach($tasks as $task){
                     $hours = ceil(($task['duration'] * $task['difficulty']) / $speed);
                     $developerPlan['tasks'][] = [
-                        'task' => $task['task'],
+                        'task' => $task['name'],
                         'hours' => $hours
                     ];
                     $developerPlan['totalHours'] += $hours;
@@ -55,20 +55,10 @@ class PlanController extends Controller
                 $developerPlans[] = $developerPlan;
             }
 
-            echo "Developer Bazında İş Yapma Programı:\n";
-            foreach($developerPlans as $developerPlan){
-                echo "Developer: " . $developerPlan['developer'] . "\n";
-                echo "Toplam Çalışma Saati: " . $developerPlan['totalHours'] . " saat\n";
-                echo "Yapılacak İşler:\n";
-                foreach($developerPlan['tasks'] as $task){
-                    echo "- " . $task['task'] . " - " . $task['hours'] . " saat\n";
-                }
-                echo "\n";
-            }
-
-            echo "Minimum Toplam Hafta Sayısı: " . $minimumWeeks . " hafta\n";
+            return view('schedule', compact('developerPlans', 'minimumWeeks'));
 
         });
+
 
     }
 
